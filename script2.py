@@ -4,7 +4,7 @@ pygame.init()
 pygame.mixer.init()
 pygame.mixer.music.load('charliekirk.mp3')
 pygame.mixer.music.play(-1)
-pygame.mixer.music.set_volume(0.5)
+pygame.mixer.music.set_volume(0)
 
 
 # Exercicio 2
@@ -105,8 +105,64 @@ salario_reajuste(400)
 
 # Exercicio 9
 
-def caminhao_calculo(peso,origem):
+def caminhao_calculo(peso,origem,codigo):
+
+    caminhao = True
+
+    while caminhao is True:
+        if 1 >= origem <= 5:
+            pass
+        else:
+            print("Erro, origem fora dos parametros.")
+            break
+
+        if 10 >= codigo <= 40:
+            pass
+        else:
+            print("Erro, codigo fora dos parametros.")
+            break
+
+        peso *= 1000
+
+        if origem == 1:
+            imposto = 1.35
+        elif origem == 2:
+            imposto = 1.25
+        elif origem == 3:
+            imposto = 1.15
+        elif origem == 4:
+            imposto = 1.05
+        else: imposto = 1.00
+
+        if 10 >= codigo <= 20:
+            preco_produto = 100
+        elif 21 >= codigo <= 30:
+            preco_produto = 250
+        elif 31 >= codigo <= 40:
+            preco_produto = 340
+
+        preco_bruto = preco_produto * peso
+        preco_taxado = preco_bruto * imposto
+
+        print(f"O preço bruto foi de {preco_bruto}, e após imposto é de {preco_taxado}.")
+
+        caminhao = False
 
 # Exercicio 10
 
-def triangulo:
+def triangulo(cat_a,cat_b,cat_c):
+
+    if cat_a >= cat_b + cat_c:
+        print("Não forma triangulo.")
+    elif cat_a == cat_b == cat_c:
+        print("Triangulo Equilatero.")
+    elif cat_a == cat_b or cat_a == cat_c or cat_b == cat_c:
+        print("Triangulo Isosceles")
+    elif cat_a ** 2 < cat_b ** 2 + cat_c ** 2:
+        print("Triangulo Acutangulo.")
+    elif cat_a ** 2 == cat_b ** 2 + cat_c ** 2:
+        print("Triangulo Retangulo.")
+    elif cat_a ** 2 > cat_b ** 2 + cat_c ** 2:
+        print("Triangulo Obsutangulo.")
+
+triangulo(4, 3, 2)
